@@ -1,0 +1,151 @@
+@charset "utf-8";
+/* CSS Document */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, input, textarea, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video, hr {
+margin: 0;
+padding: 0;
+border: 0;
+}
+a {
+	color: #fff;
+text-decoration: none;
+}
+
+.activity-btn {
+position: fixed;
+display: block;
+top: 0px;
+left: 85px;
+width: 300px;
+height: 91px;
+background: url(../Activity/images/logo.png) no-repeat;
+}
+p{list-style: decimal;color: #666; text-indent: 2em; line-height:30px;}
+.wrapper {
+background: #F9FFF1;
+padding-bottom: 20px;
+border-bottom: 1px solid #EAF1E1;
+}
+.height20{height:20px;}
+.container {
+width: 960px;
+margin: 0
+ auto;
+text-align: left;
+}
+.slogan{height: 356px;
+background: url('10.jpg')no-repeat center top;
+margin: 0 auto;
+width: 100%;
+background-attachment: fixed;}
+.top-banner {
+	
+	padding: 150px 0 0;
+	background: url(banner.gif) no-repeat center 0
+}
+
+.invite-illus {
+margin-top: 35px;
+}
+
+
+.invite-illus .illus-img {
+	float: left;
+	border-bottom: 3px solid #f5f5da
+}
+
+.invite-illus .illus-img
+ img {
+display: block;
+}
+
+img {
+vertical-align: middle;
+font-size: 12px;
+line-height: 1em;
+color: #999;
+text-align: left;
+overflow: hidden;
+-ms-interpolation-mode: bicubic;
+}
+
+fieldset, img {
+border: none;
+}
+
+
+.sec-intro {
+padding-bottom: 40px;
+font-size: 14px;
+line-height: 27px;
+}
+
+.sec-intro h4 {
+color: #464646;
+padding: 29px 0 0 21px;
+font-size: 14px;
+margin: 0;
+}
+
+.bold {
+font-weight: bold;
+}
+
+
+.bar-notice {
+padding: 10px 20px 20px 16px;
+}
+
+.bar-notice ol {
+padding-left: 30px;
+}
+
+ol, ul {
+list-style: none;
+}
+
+.bar-notice
+ li {
+	 line-height:30px;
+list-style: decimal;
+color: #666;
+}
+
+.sec-record {
+margin-bottom: 30px;
+text-align: center;
+}
+#footer-menu {margin-top: 8px;}
+.btn-red-invite {
+display: inline-block;
+zoom: 1;
+border-radius: 0.2em;
+padding: 0
+ 40px;
+height: 50px;
+border: 1px solid #00ADFF;
+background: #00ADFF;
+background: -webkit-gradient(linear, 0 0, 0 bottom, from(#00ADFF), to(#00ADFF));
+background: -webkit-linear-gradient(#00ADFF, #00ADFF);
+background: -moz-linear-gradient(#00ADFF), to(#00ADFF));
+background: -ms-linear-gradient(#00ADFF), to(#00ADFF));
+background: -o-linear-gradient(#00ADFF), to(#00ADFF));
+background: linear-gradient(#00ADFF), to(#00ADFF));
+-webkit-box-shadow: #CFCFCF 0px 2px 2px;
+-moz-box-shadow: #CFCFCF 0px 2px 2px;
+box-shadow: #CFCFCF 0px 2px 2px;
+vertical-align: middle;
+color: #FFF;
+font: 24px/50px "microsoft yahei";
+white-space: nowrap;
+}
+
+.btn-red-invite: hover{
+border-color: #F89200;
+background: #00ADFF;
+background: -webkit-gradient(linear, 0 0, 0 bottom, from(#0F7BAD), to(#00ADFF));
+background: -webkit-linear-gradient(#0F7BAD, #00ADFF);
+background: -moz-linear-gradient(#0F7BAD), to(#00ADFF));
+background: -ms-linear-gradient(#0F7BAD), to(#00ADFF));
+background: -o-linear-gradient(#0F7BAD), to(#00ADFF));
+background: linear-gradient(#0F7BAD), to(#00ADFF));
+}

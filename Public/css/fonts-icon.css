@@ -1,0 +1,142 @@
+@charset "utf-8";
+/* CSS Document */
+
+@font-face {
+	font-family: 'FontAwesome';
+	src: url('../images/fonts/fontawesome-webfont.eot?v=4.0.3');
+	
+	src: url('../images/fonts/fontawesome-webfont.eot?#iefix&v=4.0.3') format('embedded-opentype'), 
+	     url('../images/fonts/fontawesome-webfont.woff?v=4.0.3') format('woff'), 
+	     url('../images/fonts/fontawesome-webfont.ttf?v=4.0.3') format('truetype'), 
+	     url('../images/fonts/fontawesome-webfont.svg?v=4.0.3#fontawesomeregular') format('svg');
+}
+
+[class^="linecons-"], [class*=" linecons-"] {
+	display: inline-block;
+	font-family: FontAwesome;
+	font-style: normal;
+	font-weight: normal;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+
+.linecons-financial:before {
+	/*我要理财*/
+	content: "\f157";
+}
+
+.linecons-borrowing:before{
+	/*融资借贷*/
+	content: "\f0ea";
+}
+.linecons-security:before {
+	/*安全保障*/
+	content: "\f132";	
+}
+
+.linecons-volume:before {
+	/*成交量*/
+	content: "\f0c0";
+}
+
+.linecons-more:before {
+	/*更多*/
+	content: "\f101";
+}
+
+.linecons-connection:before {
+	/*连接*/
+	content: "\f0c1";
+}
+
+.linecons-mall:before {
+	/*商城*/
+	content: "\f07a";
+}
+
+.linecons-guide:before {
+	/*新手指引*/
+	content: "\f059";
+}
+
+.linecons-logo:before {
+	content: "\f023";
+}
+.linecons-registered:before{
+	content: "\f007";
+}
+.linecons-phone:before{
+	/*电话*/
+	content: "\f095";
+}
+.linecons-weibo:before{
+	/*微博*/
+	content: "\f18a";
+	/*color: #DF9898;*/
+}
+
+.linecons-apple:before {
+	/*APP 苹果*/
+	content: "\f179";
+}
+
+.linecons-Wechat:before {
+	/*微信*/
+	content: "\f0e6";
+	/*color:#0C3;*/
+}
+
+/*top 微信  微博*/
+
+.icon {
+  width: 28px;
+  height: 28px;
+  opacity: .8;
+  filter: alpha(opacity:50);
+  display: block;
+  cursor: default;
+  background-image: url(../images/ico/base.png?20150109);
+}
+icon:hover{ opacity:1;}
+.icon-weixin {
+  background-position: -86px 0;
+}
+
+ .icon-weibo {
+  background-position: -115px 0;
+}
+
+.linecons-service , .linecons-QQgroup , .linecons-weibo-img ,.linecons-Wechat-img{
+	width: 15px;
+	height: 14px;
+	background-image: url("../images/ico/vr-ico.png");
+	background-repeat: no-repeat;
+}
+/*结束*/
+
+.linecons-service {
+	/*客服*/
+	margin-top: 5px;
+	background-position: 0 -175px;
+}
+
+.linecons-QQgroup{
+	/*QQ群*/
+	margin-top: 5px;
+	background-position: 0 -192px;
+}
+
+.linecons-weibo-img{
+	/*新浪微博IMG*/
+	margin-top: 5px;
+	background-position: -35px -175px;
+}
+
+.linecons-Wechat-img{
+	/*腾讯微信IMG*/
+	width: 18px;
+	height: 16px;
+	margin-top: 5px;
+	background-position: -52px -175px;
+}

@@ -1,0 +1,594 @@
+body {
+	font-size: 12px;
+	font-family: "微软雅黑", Verdana, Arial, Helvetica, sans-serif;
+	color: #333
+}
+body, p, div, ul, li, h1, h2, h3, h4, h5, h6, span, input, table, td, th, textarea {
+	margin: 0;
+	padding: 0
+}
+ul li {
+	list-style: none
+}
+a {
+	text-decoration: none;
+	color: #53a0e3;
+	font-size: 12px
+}
+a:hover {
+	text-decoration: none;
+	color: #007bb4
+}
+img {
+	border: 0
+}
+.lt {
+	float: left
+}
+.rt {
+	float: right
+}
+label, input, select, img {
+	vertical-align: middle;
+	display: inline-block
+}
+.clear {
+	width: 0;
+	padding: 0;
+	height: 0;
+	margin: 0;
+	font-size: 0;
+	line-height: 0;
+	clear: both
+}
+.cf:before, .cf:after {
+	content: " ";
+	display: table
+}
+.cf:after {
+	clear: both
+}
+.cf {
+	zoom: 1
+}
+.main {
+	width: 1000px;
+	margin: 0 auto
+}
+
+.light-page-bg {
+	background: url("../images/login/light-page-top-bg.png") repeat-x;
+	background-color: #f5f5f5
+}
+.borrow-page-top {
+	height: 38px;
+	line-height: 38px;
+	color: #fff;
+}
+.borrow-page-top.page-top33 {
+	height: 33px;
+	line-height: 33px
+}
+.borrow-page-top a {
+	color: #fff
+}
+.borrow-page-top a:hover {
+	color: #cecece
+}
+.borrow-page-top .borrow-top-right {
+	float: right
+}
+.borrow-page-top .borrow-top-right a {
+	display: inline-block;
+	float: left;
+	margin-left: 12px
+}
+.borrow-page-top .borrow-top-right a.ico-weixin {
+	margin-top: 11px;
+	width: 22px;
+	height: 16px;
+	background-position: 0 0
+}
+.borrow-page-top .borrow-top-right a.ico-sina {
+	margin-top: 11px;
+	width: 22px;
+	height: 16px;
+	background-position: -30px 0
+}
+.borrow-page-top .borrow-top-right a.ico-phone {
+	margin-top: 9px;
+	width: 22px;
+	height: 16px;
+	background-position: -55px 0
+}
+.borrow-page-top .borrow-top-right span {
+	display: inline-block;
+	float: left;
+	font-family: Impact;
+	margin-left: 12px;
+	font-size: 20px;
+}
+.navigation {
+	height: 80px;
+	padding-right: 17px;
+	overflow: hidden
+}
+.navigation .borrow-logo {
+	display: block;
+	float: left;
+	margin-top: 15px
+}
+.footer {
+	margin-top: 30px;
+	background-color: #555;
+	border-top: 1px solid #4a4a4a;
+	height: 148px;
+	min-width: 1000px
+}
+.footer .footer-box {
+	width: 1000px;
+	margin: 0 auto
+}
+.footer .footer-box .footer-infromation {
+	background: url("../images/login/footer-bg.jpg") no-repeat right top;
+	width: 775px;
+	float: left
+}
+.footer .footer-box .footer-infromation p {
+	line-height: 23px;
+	padding-top: 24px;
+	color: #888
+}
+.footer .footer-box .footer-infromation p a {
+	font-weight: bold;
+	color: #888;
+	margin-right: 18px;
+	font-family: "宋体"
+}
+.footer .footer-box .footer-infromation p a:hover {
+	color: #aeaeae
+}
+.footer .footer-box .footer-infromation p.link {
+	padding-top: 18px
+}
+.footer .footer-box .footer-img {
+	padding-left: 20px
+}
+.footer .footer-box .footer-img a {
+	padding-top: 34px;
+	display: block;
+	width: 80px;
+	float: left;
+	text-align: center;
+	color: #666;
+	margin-left: 10px
+}
+.footer .footer-box .footer-img a span {
+	display: inline-block;
+	width: 59px;
+	height: 58px
+}
+.footer .footer-box .footer-img a span.wb {
+	background-position: 0 -220px
+}
+.footer .footer-box .footer-img a span.wx {
+	background-position: -134px -220px
+}
+.footer .footer-box .footer-img a:hover {
+	color: #aeaeae
+}
+.footer .footer-box .footer-img a:hover span.wb {
+	background-position: 0 -300px
+}
+.footer .footer-box .footer-img a:hover span.wx {
+	background-position: -134px -300px
+}
+.footer.fixedToBottom {
+	width: 100%;
+	position: absolute;
+	bottom: 0
+}
+.footer.margin-top0 {
+	margin-top: 0
+}
+.home-footer.footer {
+	height: 35px;
+	line-height: 35px;
+	background-color: #333
+}
+.home-footer .main {
+	color: #cecece;
+	text-align: center
+}
+.ico-reg {
+	background-image: url("../images/login/reg-ico.png");
+	background-repeat: no-repeat
+}
+.btn-new-groups {
+	background:#D89714;
+	background-repeat: no-repeat
+}
+.regist-content {
+	background: url("../images/login/reg-shadow-bg.png") no-repeat left bottom;
+	padding-bottom: 10px
+}
+.fild-group {
+	line-height: 34px;
+	padding-top: 10px;
+	padding-bottom: 8px
+}
+.fild-group.fild-group-radio {
+	padding-top: 3px;
+	padding-bottom: 0
+}
+.fild-group.fild-group-hidden {
+	overflow: hidden
+}
+.fild-group.fild-poput-word {
+	padding-top: 5px;
+	padding-bottom: 0;
+	height: 25px;
+	line-height: 25px;
+	border: 0 solid red
+}
+.fild-group .fild-prompt {
+	color: #c2c2c2;
+	font-size: 14px
+}
+.fild-group .fild-name {
+	width: 110px;
+	padding-right: 17px;
+	font-size: 14px;
+	color: #666;
+	text-align: right;
+	float: left
+}
+.fild-group .fild-name.login-fild-name {
+	width: 82px
+}
+.fild-group .fild-name.login-fild-name100 {
+	width: 100px
+}
+.fild-group .fild-name.borrow-fild-width {
+	width: 190px
+}
+.fild-group .fild-name.fild-name-w150 {
+	width: 150px
+}
+.fild-group .fild-center {
+	width: 245px;
+	float: left
+}
+.fild-group .fild-center .pw-strength {
+	height: 16px;
+	line-height: 16px;
+	margin-left: -2px;
+	color: #fff;
+	padding-top: 6px;
+*padding-top:4px
+}
+.fild-group .fild-center .pw-strength span {
+	display: inline-block;
+	width: 76px;
+	text-align: center;
+	background-color: #f0f7ea;
+	margin-left: 2px
+}
+.fild-group .fild-center .pw-strength span.week {
+	background-color: #ff8679
+}
+.fild-group .fild-center .pw-strength span.in {
+	background-color: #ffd800
+}
+.fild-group .fild-center .pw-strength span.strong {
+	background-color: #89c900
+}
+.fild-group .fild-center.fild-radio {
+	width: 280px
+}
+.fild-group .fild-center.fild-radio input[name=radio] {
+	margin-right: 9px;
+*margin-right:0
+}
+.fild-group .fild-center.fild-radio label {
+	font-size: 14px;
+	color: #666;
+	margin-right: 20px
+}
+.fild-group .fild-center.fild-default-radio {
+	width: 280px
+}
+.fild-group .fild-center.fild-default-radio input[name=radio] {
+	margin-right: 9px;
+*margin-right:0
+}
+.fild-group .fild-center.fild-default-radio label {
+	font-size: 14px;
+	color: #666;
+	margin-right: 5px
+}
+.fild-group .fild-center.fild-width {
+	width: 353px;
+	margin-right: 9px
+}
+.fild-group .fild-row-xs label {
+	font-size: 14px;
+	color: #666;
+	margin-left: 9px;
+	margin-right: 18px;
+*margin-left:5px;
+*margin-right:14px
+}
+.fild-group .unit {
+	width: 35px;
+	float: left;
+	color: #666
+}
+.fild-group .fild-right-box {
+	float: left;
+	width: 102px;
+	margin-right: 13px
+}
+.fild-group .error-box {
+	position: relative;
+	float: left;
+	z-index: 1;
+	width: 330px
+}
+.fild-group .error-box .ico-ok {
+	display: none;
+	margin-top: 13px;
+	float: left;
+	width: 14px;
+	height: 12px;
+	background-position: -77px 0
+}
+.fild-group .error-box.login-error {
+	width: 36px
+}
+.fild-group .error-box.error200 {
+	width: 200px
+}
+.fild-group .error-box.error-w110 {
+	width: 110px
+}
+.fild-group .fild-input {
+	width: 220px;
+	height: 32px;
+	line-height: 32px;
+	padding-left: 10px;
+	border: 1px solid #c2c2c2;
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	font-size: 14px
+}
+.fild-group .fild-input.fild-select {
+	width: 232px
+}
+.fild-group .fild-input.sum-money {
+	text-align: right;
+	padding-left: 0;
+	padding-right: 10px;
+	font-weight: bold
+}
+
+.fild-group .captcha {
+	width:110px
+}
+.fild-group .error-meg {
+	display: none;
+	position: absolute;
+	left: 0;
+	top: 0;
+	font-size: 12px;
+	color: #666;
+	border: 1px solid #f5d8a7;
+	padding: 8px 9px 7px 9px;
+	max-width: 150px;
+	line-height: 17px;
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	background-color: #fff6db
+}
+.fild-group .error-meg .ico-error-arrow {
+	width: 8px;
+	height: 17px;
+	background-position: 0 0;
+	display: block;
+	position: absolute;
+	left: -6px;
+	top: 8px
+}
+.fild-group .error-meg .ico-error-mark {
+	display: block;
+	float: left;
+	width: 16px;
+	height: 19px;
+	background-position: -99px 0;
+	margin-right: 9px
+}
+.fild-group .input-link-inset {
+	border: 1px solid #51b600;
+	box-shadow: 0 0 5px #d3eb9f inset;
+	-moz-box-shadow: 0 0 5px #d3eb9f inset
+}
+.fild-group .error-border {
+	border: 1px solid #f00
+}
+
+.fild-group .btn-disabled {
+	color: #a0a0a0;
+	background: 0;
+	background-color: #eee;
+filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=#eeeeee, endColorstr=#eeeeee)
+}
+.fild-group .btn-disabled:hover {
+	background: 0;
+	background-color: #eee;
+filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=#eeeeee, endColorstr=#eeeeee)
+}
+.article {
+	font-family: "宋体";
+	font-size: 12px;
+	color: #888;
+	position: relative
+}
+.article.login-article {
+	border: 1px solid red;
+	height: 30px;
+	line-height: 30px
+}
+.article a {
+	color:#066CA4
+}
+.article a:hover {
+	color:#0E618E
+}
+
+.login-box {
+	border: 1px solid #dadada;
+	background-color: #fff;
+	height: 464px
+}
+.login-img {
+	display: block;
+	float: left
+}
+.login-aside {
+	overflow: hidden
+}
+.login-title {
+	font-size: 18px;
+	color: #444;
+	height: 90px;
+	line-height: 90px;
+	padding-left: 55px
+}
+.login-msg {
+	display: none;
+	margin-left: 99px;
+	font-size: 12px;
+	color: #666;
+	border: 1px solid #f5d8a7;
+	padding: 8px 9px 7px 9px;
+	width: 212px;
+	line-height: 17px;
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	background-color: #fff6db
+}
+.login-msg strong {
+	font-weight: normal
+}
+.login-msg .ico-error-arrow {
+	width: 8px;
+	height: 17px;
+	background-position: 0 0;
+	display: block;
+	position: absolute;
+	left: -6px;
+	top: 8px
+}
+.login-msg .ico-error-mark {
+	display: block;
+	float: left;
+	width: 16px;
+	height: 19px;
+	background-position: -99px 0;
+	margin-right: 9px
+}
+.forget {
+	float: right;
+	margin-right: 12px
+}
+.login-submit {
+	margin-left: 99px;
+	display: block;
+	width: 233px;
+	height: 41px;
+	line-height: 41px;
+	font-size: 18px;
+	text-align: center;
+	background-position: 0 -290px;
+	color: #fff;
+/*	text-shadow: 0 2px 5px #000;
+	-moz-text-shadow: 0 2px 5px #000*/
+}
+.login-submit:hover {
+	color: #fff
+}
+.new-reg {
+	text-align: center;
+	padding-top: 14px
+}
+.new-reg a {
+	color:#066CA4
+}
+.new-reg a:hover {
+	color:#07547E
+}
+
+.login-sunshine-insurance {
+	text-align: center;
+	padding-top: 15px
+}
+.login-sunshine-insurance span {
+	display: block;
+	height: 16px
+}
+.login-sunshine-insurance span em {
+	display: inline-block;
+	width: 15px;
+	height: 16px;
+	background-position: -158px -124px
+}
+.login-sunshine-insurance span a {
+	display: inline-block;
+	padding-left: 6px
+}
+.regist-box {
+	border: 1px solid #dadada;
+	background-color: #fff;
+	padding-bottom: 90px;
+	padding-left: 50px;
+	padding-right: 50px;
+	overflow: hidden
+}
+.regist-title {
+	color: #333;
+	height: 60px;
+	line-height: 60px;
+	border-bottom: 1px solid #dbdbdb;
+	padding: 0 10px;
+	font-size: 18px
+}
+.regist-title span {
+	font-weight: normal;
+	float: right;
+	font-size: 14px
+}
+.regist-title span a {
+	color: #51b600
+}
+.regist-title span a:hover {
+	color: #439600
+}
+.checking {
+	padding: 30px 0 0 0
+}
+.advertising {
+	width: 450px;
+	height: 400px;
+	position: absolute;
+	top: 61px;
+	right: 50px;
+	z-index: 0
+}
+.advertising a {
+	display: block;
+	width: 450px;
+	height: 400px
+}
+.relative {
+	position: relative
+}
