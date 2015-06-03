@@ -33,9 +33,9 @@ class Rount{
 	function _set_routing(){
 
 		// 载入当前访问应用的路由配置文件
-		if(file_exists(APPPATH.'/config/routes.php'))
+		if(file_exists(APPPATH.'/Config/routes.php'))
 		{
-			include(APPPATH.'/config/routes.php');
+			include(APPPATH.'/Config/routes.php');
 			if(isset($route) && is_array($route))
 			{
 				$this->routes = $route;
@@ -108,16 +108,24 @@ class Rount{
 	 */
 	protected function _default_router(){
 		// 读取用户配置，看是否设置了默认访问控制器，没有则使调用系统定义的默认路由
-		if(file_exists(APPPATH.'/config/routes.php'))
+		if(file_exists(APPPATH.'/Config/config.php'))
 		{
-			include(APPPATH.'/config/routes.php');
-			if(isset($route) && is_array($route))
-			{
-				$this->routes = $route;
+			include(APPPATH.'/Config/config.php');
+			// 自定义路由
+			if(isset($config['url_controller'])){
+				$this->uri->segments[] = $config['url_controller'];
+			}else{
+				$this->uri->segments[] = 'Page';
 			}
-		}
-
-		$this->uri->segments = array('Page','index');
+			// 自定义控制器
+			if(isset($config['url_action'])){
+				$this->uri->segments[] = $config['url_action'];
+			}else{
+				$this->uri->segments[] = 'index';
+			}
+		}else{
+			$this->uri->segments = array('Page','index');
+		}		
 	}
 
 
