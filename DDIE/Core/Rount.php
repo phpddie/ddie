@@ -40,9 +40,14 @@ class Rount{
 			}
 		}
 		// 默认控制器
-		if(empty($this->uri->segments))
+		if(!isset($this->uri->segments[0]))
 		{
-			$this->uri->segments = $this->uri->uri_config;
+			$this->uri->segments[0] = $this->uri->uri_config[0];
+		}
+		// 默认操作
+		if(!isset($this->uri->segments[1]))
+		{
+			$this->uri->segments[1] = $this->uri->uri_config[1];
 		}
 		$this->_set_request($this->uri->segments);
 	}
