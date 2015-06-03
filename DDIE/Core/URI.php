@@ -10,6 +10,7 @@ class URI{
 	public $segments   = array();  // URI切分
 	public $uri_config = array();  // URI配置
 	public $uri_suffix = '';       // URI后缀
+	public $uri_request='';
 	
 	public function __construct(){
 		$uri = $this->_parse_uri();		
@@ -27,13 +28,14 @@ class URI{
 	 */
 	protected function _parse_uri()
 	{
+
 		if(!isset($_SERVER['REQUEST_URI'],$_SERVER['SCRIPT_NAME']))
 		{
 			return '';
 		}
 
 		// URL解析
-		$uri   = parse_url($_SERVER['REQUEST_URI']);          // URI处理		
+		$uri   = parse_url($_SERVER['REQUEST_URI']);          // URI处理
 		$query = isset($uri['query'])? $uri['query']: '';     // URI访问参数
 		$uri   = isset($uri['path']) ? $uri['path'] : '';     // URI访问路径
 		
@@ -48,20 +50,15 @@ class URI{
 			{	
 				$uri = substr($uri,strlen(dirname($_SERVER['SCRIPT_NAME'])));
 			}
-		}	
-		
-		// 请求参数处理
-		if(trim($uri, '/') === '' && strncmp($query, '/', 1) === 0)
-		{
-			$query = explode('?', $query, 2);
-			$uri = $query[0];
-			$_SERVER['QUERY_STRING'] = isset($query[1]) ? $query[1] : '';
 		}
-		else
+	
+		// REQUEST_URI处理
+		if(!empty($query))
 		{
-			$_SERVER['QUERY_STRING'] = $query;
+			parse_str($query,$param);
+			$this->uri_request = $param;
 		}
-
+		// 无URI参数
 		if ($uri === '/' OR $uri === '')
 		{
 			return '/';
@@ -114,6 +111,14 @@ class URI{
 					if ($val !== '')
 					{
 						$this->segments[] = $val;
+					}
+				}
+				// REQUEST参数处理
+				if(!empty($this->uri_request)){
+					foreach($this->uri_request as $val)
+					{
+						$val = trim($val);
+						array_push($this->segments,$val);
 					}
 				}
 			}else{
