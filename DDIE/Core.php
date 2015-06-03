@@ -47,7 +47,6 @@ function &get_Rinfo()
 	return Rount::get_info();
 }
 
-
 // 一些需要全局使用的数据保存到静态变量中
 
 
