@@ -9,8 +9,15 @@ require_once 'Core/Common.php';
 // 框架目录(重要)
 if(!defined('DDIE')){define('DDIE', str_replace('\\', '/',dirname(__FILE__)));}
 
+// 站点目录
+if(!defined('ROOT')){
+	define('ROOT', dirname(dirname(__FILE__)));
+}
 
-
+// 默认项目目录
+if(!defined('MODULE')){
+	define('MODULE','App');
+}
 
 // 项目目录(默认)
 //if(!defined('APPPATH')){define('APPPATH','app');}
@@ -24,23 +31,14 @@ if(!defined('DDIE')){define('DDIE', str_replace('\\', '/',dirname(__FILE__)));}
 
 
 
-// 默认项目目录
-if(!defined('MODULE')){
-	define('MODULE','app');
-}
-
-
 
 /*
  * ====================路由处理========================
 **/
 // URI处理类
 $URI = load_class('URI','Core');
-//pr($URI);
 // Rount处理类
 $Rount = load_class('Rount','Core',$URI);
-pr($Rount);
-
 
 // 路由信息获取
 function &get_Rinfo()
@@ -70,23 +68,33 @@ $class  = ucfirst($Rount->class);                   // 当前访问控制器
 $method = $Rount->method;                           // 当前访问操作
 $params = array_slice($Rount->uri->segments,2);     // 请求参数
 
-echo $module;
+
 
 // 根据用户访问的模块，调用对应模块下的控制器
 
-// 自动加载项目类
-function __autoload($class){
-	// 载入前，先判断文件是否存在file_exists()
-	require_once $module.DS.'Controller'.DS.$class.'.class.php';	
-}
+
 // 除了使用__autoload()方法来自动载入类，还可以定义一个方法来进行类的载入和实例化。类似CI框架的load_class()方法
 
 // 返回已定义的类(含系统自带类)
 // $declared = get_declared_classes();
 
+// 在自动载入方法中使用变量无法识别，是用常量是不行的，访问模块是会改变的。
+// 把变量传入到常量中？？？
+
+
+// 项目控制器目录
+if(!defined('CDIR')){
+	define('CDIR',ROOT.DS.$Rount->module.DS.'Controller'.DS);
+}
+// __autoload()的替代方法，遇到未定义的类，则调用import()方法
+spl_autoload_register('import');
+function import($className){
+	require_once CDIR.$className.'.class.php';	
+}
+
 
 // 判断控制器文件是否存在
-$CExists = $module.DS.'Controller'.DS.$class.'.class.php';
+$CExists = CDIR.$class.'.class.php';
 $file = fExists($CExists);
 if($file){
 	$cExists = cExists($class);    // 检测类是否存在	

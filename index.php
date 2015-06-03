@@ -3,7 +3,7 @@
 if(!defined('DS')){
 	define('DS', DIRECTORY_SEPARATOR);
 }
-// 项目目录
+// 站点目录
 if(!defined('ROOT')){
 	define('ROOT', dirname(__FILE__));
 }
