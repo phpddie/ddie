@@ -10,11 +10,7 @@ class Rount{
 
 	function __construct($param){
 		$this->uri = $param;
-
-		// 读取配置信息
-		// $this->config =& load_class('Config', 'core');
-
-		$this->_set_routing();
+		$this->_set_route();
 		self::$instance =& $this;   // 把当前对象信息存储到静态变量
 	}
 
@@ -30,31 +26,25 @@ class Rount{
 	 * @author  Damon
 	 * @date 2015/5/17
 	 */
-	function _set_routing(){
-
+	function _set_route(){
 		// 载入当前访问应用的路由配置文件
-		if(file_exists(APPPATH.'/Config/routes.php'))
+
+		$module = ucfirst($this->uri->module);
+		if(file_exists($module.'/Config/routes.php'))
 		{
-			include(APPPATH.'/Config/routes.php');
+			include($module.'/Config/routes.php');
 			if(isset($route) && is_array($route))
 			{
 				$this->routes = $route;
-
 				// 路由rewrite处理
 			}
 		}
-
-		if($this->uri->uri_string !== '')
+		// 默认控制器
+		if(empty($this->uri->segments))
 		{
-			// 指定了URI参数
-			$this->_parse_routes();
-		}
-		else
-		{	// 默认控制器
 			$this->uri->segments = $this->uri->uri_config;
 		}
-
-		$this->_set_request(array_values($this->uri->segments));
+		$this->_set_request($this->uri->segments);
 	}
 
 
@@ -68,39 +58,11 @@ class Rount{
 		// 默认路由
 		if(empty($segments))
 		{
-			$this->uri->segments = $this->uri->uri_config;
-			return;
+			$segments = $this->uri->uri_config;
 		}
-
-		// 要访问的控制器
-		$this->class = $segments[0];
-		// 要访问的操作
-		if (isset($segments[1]))
-		{
-			$this->method = $segments[1];
-		}
-		else
-		{
-			$this->method = 'index';
-		}
-		// 整理元素的位置
-		array_unshift($segments, NULL);
-		unset($segments[0]);
-		$this->uri->segments = $segments;
-	}
-
-	 /*
-	 * 路由参数处理
-	 * @author  Damon
-	 * @date 2015/5/17
-	 */
-	protected function _parse_routes()
-	{
-		// URI参数处理
-		$uri = implode('/', $this->uri->segments);
-		// Get HTTP verb
-		$http_verb = isset($_SERVER['REQUEST_METHOD']) ? strtolower($_SERVER['REQUEST_METHOD']) : 'cli';
-		$this->_set_request(array_values($this->uri->segments));
+		$this->module = $this->uri->module;  // 访问的模块
+		$this->class  = $segments[0];        // 访问的控制器
+		$this->method = $segments[1];        // 访问的操作
 	}
 
 

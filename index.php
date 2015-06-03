@@ -11,10 +11,12 @@ if(!defined('ROOT')){
 if(!defined('CORE')){
 	define('CORE', ROOT.DS.'DDIE');
 }
-// 应用目录
-if(!defined('APPPATH')){
-	define('APPPATH','app');
-}                   
-// 引入默认项目首页
-require ROOT . DS . APPPATH . DS . 'index.php';
+// 默认项目目录
+if(!defined('MODULE')){
+	define('MODULE','app');
+}
+                   
+// 引入内核文件
+require_once CORE.DS.'Core.php';
+
 ?>

@@ -6,22 +6,29 @@ define('VERSION', '1.0.0');         // 框架版本号
 
 // 引入公共函数库(必须)
 require_once 'Core/Common.php';
-
-// 引入项目全局配置文件
-// require_once ROOT.'/Conf/config.php';
 // 框架目录(重要)
 if(!defined('DDIE')){define('DDIE', str_replace('\\', '/',dirname(__FILE__)));}
 
 
+
+
 // 项目目录(默认)
-if(!defined('APPPATH')){define('APPPATH','app');}
+//if(!defined('APPPATH')){define('APPPATH','app');}
 
 
 /*
  * ====================配置处理========================
 **/
-// 引入系统配置和项目配置，项目配置会覆盖系统默认配置
-// $config = array_merge($sys,$app);
+// 引入系统配置和项目公共配置和项目配置，项目配置会覆盖系统默认配置
+// $config = array_merge($sys,$conf,$app);
+
+
+
+// 默认项目目录
+if(!defined('MODULE')){
+	define('MODULE','app');
+}
+
 
 
 /*
@@ -29,8 +36,12 @@ if(!defined('APPPATH')){define('APPPATH','app');}
 **/
 // URI处理类
 $URI = load_class('URI','Core');
+//pr($URI);
 // Rount处理类
 $Rount = load_class('Rount','Core',$URI);
+pr($Rount);
+
+
 // 路由信息获取
 function &get_Rinfo()
 {
@@ -54,17 +65,19 @@ $Obj = load_class('Controller','Core',$Rount);
 /*
  * ====================控制器处理========================
 **/
-$class = ucfirst($Rount->class);                    // 当前访问控制器
+$module = ucfirst($Rount->module);
+$class  = ucfirst($Rount->class);                   // 当前访问控制器
 $method = $Rount->method;                           // 当前访问操作
 $params = array_slice($Rount->uri->segments,2);     // 请求参数
 
+echo $module;
 
-
+// 根据用户访问的模块，调用对应模块下的控制器
 
 // 自动加载项目类
 function __autoload($class){
 	// 载入前，先判断文件是否存在file_exists()
-	require_once APPPATH.'/Controller/'.$class.'.class.php';	
+	require_once $module.DS.'Controller'.DS.$class.'.class.php';	
 }
 // 除了使用__autoload()方法来自动载入类，还可以定义一个方法来进行类的载入和实例化。类似CI框架的load_class()方法
 
@@ -73,7 +86,7 @@ function __autoload($class){
 
 
 // 判断控制器文件是否存在
-$CExists = APPPATH.'/Controller/'.$class.'.class.php';
+$CExists = $module.DS.'Controller'.DS.$class.'.class.php';
 $file = fExists($CExists);
 if($file){
 	$cExists = cExists($class);    // 检测类是否存在	
