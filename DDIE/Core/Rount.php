@@ -33,23 +33,23 @@ class Rount{
 	function _set_routing(){
 
 		// 载入当前访问应用的路由配置文件
-		if (file_exists(APPPATH.'/config/routes.php'))
+		if(file_exists(APPPATH.'/config/routes.php'))
 		{
-			include(APPPATH.'config/routes.php');
-			if (isset($route) && is_array($route))
+			include(APPPATH.'/config/routes.php');
+			if(isset($route) && is_array($route))
 			{
 				$this->routes = $route;
 			}
 		}
 
-		if ($this->uri->uri_string !== '')
+		if($this->uri->uri_string !== '')
 		{
 			// 指定了URI参数
 			$this->_parse_routes();
 		}
 		else
 		{	// 没有指定URI参数，则访问默认控制器
-			$this->_set_default_controller();
+			$this->_default_router();
 		}
 
 		$this->_set_request(array_values($this->uri->segments));
@@ -63,10 +63,10 @@ class Rount{
 	 */
 	protected function _set_request($segments = array())
 	{
-
-		if (empty($segments))
+		// 默认路由
+		if(empty($segments))
 		{
-			$this->_set_default_controller();
+			$this->_default_router();
 			return;
 		}
 
@@ -106,11 +106,18 @@ class Rount{
 	 * @author  Damon
 	 * @date 2015/5/19
 	 */
-	protected function _set_default_controller(){
+	protected function _default_router(){
 		// 读取用户配置，看是否设置了默认访问控制器，没有则使调用系统定义的默认路由
+		if(file_exists(APPPATH.'/config/routes.php'))
+		{
+			include(APPPATH.'/config/routes.php');
+			if(isset($route) && is_array($route))
+			{
+				$this->routes = $route;
+			}
+		}
 
 		$this->uri->segments = array('Page','index');
-	
 	}
 
 
