@@ -39,6 +39,8 @@ class Rount{
 			if(isset($route) && is_array($route))
 			{
 				$this->routes = $route;
+
+				// 路由rewrite处理
 			}
 		}
 
@@ -48,8 +50,8 @@ class Rount{
 			$this->_parse_routes();
 		}
 		else
-		{	// 没有指定URI参数，则访问默认控制器
-			$this->_default_router();
+		{	// 默认控制器
+			$this->uri->segments = $this->uri->uri_config;
 		}
 
 		$this->_set_request(array_values($this->uri->segments));
@@ -66,7 +68,7 @@ class Rount{
 		// 默认路由
 		if(empty($segments))
 		{
-			$this->_default_router();
+			$this->uri->segments = $this->uri->uri_config;
 			return;
 		}
 
@@ -100,34 +102,6 @@ class Rount{
 		$http_verb = isset($_SERVER['REQUEST_METHOD']) ? strtolower($_SERVER['REQUEST_METHOD']) : 'cli';
 		$this->_set_request(array_values($this->uri->segments));
 	}
-
-	/*
-	 * 默认路由处理
-	 * @author  Damon
-	 * @date 2015/5/19
-	 */
-	protected function _default_router(){
-		// 读取用户配置，看是否设置了默认访问控制器，没有则使调用系统定义的默认路由
-		if(file_exists(APPPATH.'/Config/config.php'))
-		{
-			include(APPPATH.'/Config/config.php');
-			// 自定义路由
-			if(isset($config['url_controller'])){
-				$this->uri->segments[] = $config['url_controller'];
-			}else{
-				$this->uri->segments[] = 'Page';
-			}
-			// 自定义控制器
-			if(isset($config['url_action'])){
-				$this->uri->segments[] = $config['url_action'];
-			}else{
-				$this->uri->segments[] = 'index';
-			}
-		}else{
-			$this->uri->segments = array('Page','index');
-		}		
-	}
-
 
 
 }

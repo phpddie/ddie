@@ -1,19 +1,20 @@
 <?php
-
 /*
  * URI处理类
  * @author  Damon
- * @date 2015/5/17
+ * @date    2015/5/17
  */
 class URI{
-	// URI路径
-	public $uri_string = '';
-	// URI切分
-	public $segments = array();
+	
+	public $uri_string = '';       // URI切分	
+	public $segments   = array();  // URI切分
+	public $uri_config = array();  // URI配置
+	public $uri_suffix = '';       // URI后缀
 	
 	function __construct(){	
+		$this->_uri_config();
 		$uri = $this->_parse_request_uri();
-		$this->_set_uri_string($uri);
+		$this->_set_uri_string($uri);	
 	}
 
 
@@ -22,7 +23,7 @@ class URI{
 	 * @param   NULL
 	 * @return  解析后的结果
 	 * @author  Damon
-	 * @date 2015/5/17
+	 * @date    2015/5/17
 	 */
 	protected function _parse_request_uri()
 	{
@@ -77,7 +78,7 @@ class URI{
 	 * URI处理
 	 * @param 	URI
 	 * @author  Damon
-	 * @date 2015/5/17
+	 * @date    2015/5/17
 	 */
 	protected function _set_uri_string($uristr)
 	{
@@ -85,24 +86,23 @@ class URI{
 	
 		if ($uristr !== '')
 		{
-			// 从配置文件读取URL后缀配置信息
-			// $suffix = $this->config->item('url_suffix');
-			$suffix = '.html';
+			$suffix = $this->uri_suffix;
 			// URL后缀处理
 			if ($suffix !== '')
 			{
 				$slen = strlen($suffix);      // 后缀长度
-				
-				// 如访问是URL不带后缀，则不执行这里
 				if (substr($uristr, -$slen) === $suffix)
 				{
 					// 清除URL后缀
 					$uristr = substr($uristr, 0, -$slen);
 				}
 			}
+
+			// 多项目处理，项目模块名称放在segments[0]
+			// 需要判断用户是否在访问路径中加入项目模块名
 			
-			// URIc处理
-			$this->segments[0] = NULL;      // 占位
+			// URI处理
+			$this->segments[0] = NULL;      // 占位(项目模块)
 			$uriarr = explode('/', trim($uristr, '/'));
 			foreach ($uriarr as $val)
 			{
@@ -115,6 +115,38 @@ class URI{
 			unset($this->segments[0]);
 		}
 	}
+
+	/*
+	 * 获取URI配置
+	 * @author  Damon
+	 * @date    2015/6/3
+	 */
+	protected function _uri_config()
+	{
+		if(file_exists(APPPATH.'/Config/config.php')){
+			include(APPPATH.'/Config/config.php');
+		}
+		// 自定义路由
+		if(isset($config['url_controller'])){
+			$this->uri_config[] = $config['url_controller'];
+		}else{
+			$this->uri_config[] = 'Page';
+		}
+		// 自定义控制器
+		if(isset($config['url_action'])){
+			$this->uri_config[] = $config['url_action'];
+		}else{
+			$this->uri_config[] = 'index';
+		}
+		// URI后缀
+		if(isset($config['url_suffix'])){
+			$this->uri_suffix = $config['url_suffix'];
+		}else{
+			$this->uri_suffix = '.html';
+		}		
+		return;
+	}
+	
 
 
 }
